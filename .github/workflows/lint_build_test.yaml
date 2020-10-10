@@ -13,4 +13,4 @@ jobs:
     - name: Build the Docker image
       run: docker build . -t ecdemo:0.1
     - name: Test
-      run: docker run --rm -it ecdemo:0.1
+      run: docker run ecdemo:0.1
