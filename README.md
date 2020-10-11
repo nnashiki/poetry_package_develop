@@ -43,7 +43,7 @@ poetryで単体のパッケージ開発のフロー
 - list format ツールの組み合わせを設定
     - https://blog.hirokiky.org/entry/2019/06/03/202745
 - list format のコマンドを Makefile にまとめる
-   - 
+    - touch Makefile
 - 参考
     - poetry
         - https://cocoatomo.github.io/poetry-ja/cli/#add
