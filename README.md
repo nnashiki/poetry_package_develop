@@ -31,7 +31,7 @@ poetryで単体のパッケージ開発のフロー
 - `mkdir -p .github/workflows`
 - CIファイルを書く
    - `touch .github/workflows/lint_build_test.yaml`
-- list ツールを足す。試す。
+- list format ツールを足す。試す。
    - `poetry add --dev mypy`
    - `poetry add --dev black`
    - `poetry add --dev isort`
@@ -40,9 +40,10 @@ poetryで単体のパッケージ開発のフロー
    - `black -l 100 ecdemo`
    - `black -l 100 --check ecdemo`
    - `isort ecdem --diff`
-- list ツールの組み合わせを設定
+- list format ツールの組み合わせを設定
     - https://blog.hirokiky.org/entry/2019/06/03/202745
-
+- list format のコマンドを Makefile にまとめる
+   - 
 - 参考
     - poetry
         - https://cocoatomo.github.io/poetry-ja/cli/#add
