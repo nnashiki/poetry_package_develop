@@ -27,7 +27,7 @@ poetryでライブラリ開発のフロー
     - `github/gitignore/Python.gitignore` からignoreを作成してキャッシュを入れないようにする
 - `poetry new workspace --name ecdemo`
    - パッケージを作成する
-- `cd ecdemo`
+- `cd workspace`
 - `poetry shell`
     - virtual env が作成される
 - エディタのインタープリタをvenvに変更する
@@ -44,7 +44,7 @@ poetryでライブラリ開発のフロー
 
 # CI や docker での実行
 
-- `cd ecdemo`
+- `cd workspace`
 - `poetry export -f requirements.txt --output requirements.txt`
     - 本番用(docker用)のrequirements.txtを書き出す
 - `poetry export -f requirements.txt --dev --output requirements_dev.txt`
