@@ -1,6 +1,20 @@
-poetryで単体のパッケージ開発のフロー
+poetryでライブラリ開発のフロー
 
 - https://gist.github.com/nnashiki/35dc67d787079e5b8094c0426fcdeec7
+
+# はじめに
+- モジュール、パッケージ、ライブラリの違い
+   - https://netdekagaku.com/module-package-lybrary/
+- アプリ、ライブラリの違い
+   - https://www.m3tech.blog/entry/python-packaging
+   - 個人的にはライブラリライクに作ってエンドポイント(cli, webserver)を分けるのが良い
+- poetry 以前 の話
+    - setup.cfg, setup.py
+       - パッケージ名
+       - バージョン
+       - 依存関係
+    - MANIFEST.in 
+       - 配布物に含めるものを指定
 
 # poetry の準備
 - [pipxを使用したpoeryの導入.md](https://gist.github.com/nnashiki/2e5b8e70f33cad2c978e42a80d5c066b)
@@ -51,6 +65,7 @@ poetryで単体のパッケージ開発のフロー
    - `poetry add --dev black`
    - `poetry add --dev isort`
    - `poetry show`
+   -  toml に tool.black, tool.isort を追加する
    - `mypy ecdemo`
    - `black -l 100 ecdemo`
    - `black -l 100 --check ecdemo`
