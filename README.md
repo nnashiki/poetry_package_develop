@@ -2,24 +2,29 @@ poetryで単体のパッケージ開発のフロー
 
 - https://gist.github.com/nnashiki/35dc67d787079e5b8094c0426fcdeec7
 
+# poetry の準備
+- [pipxを使用したpoeryの導入.md](https://gist.github.com/nnashiki/2e5b8e70f33cad2c978e42a80d5c066b)
+- 設定確認
+   - `poetry config --list`
+
 # 初期化
 - プロジェクトトップに移動する
 - `cat /Users/niten.nashiki/ghq/github.com/github/gitignore/Python.gitignore >> .gitignore`
     - `github/gitignore/Python.gitignore` からignoreを作成してキャッシュを入れないようにする
-- `poetry new ecdemo`
+- `poetry new workspace --name ecdemo`
    - パッケージを作成する
 - `cd ecdemo`
 - `poetry shell`
     - virtual env が作成される
-- インタープリタをvenvにする
+- エディタのインタープリタをvenvに変更する
 - `poetry add fire`
-    - fireパッケージを追加する
+    - fireパッケージを仮想環境にinstallする
 - `poetry show`
     - 仮想環境にinstallされているパッケージを確認する
 
 # 続きから
 - `poetry install`
-   - toml の内容をinstallする
+   - toml, lock の内容をinstallする
 - `pytest tests/test_ecdemo.py`
     - テストが成功する事を確認する
 
@@ -57,6 +62,7 @@ poetryで単体のパッケージ開発のフロー
 
 # 参考
 - poetry
+    - [日本語](https://cocoatomo.github.io/poetry-ja/)
     - https://cocoatomo.github.io/poetry-ja/cli/#add
 - isort
     - https://github.com/PyCQA/isort
