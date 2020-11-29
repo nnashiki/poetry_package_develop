@@ -8,7 +8,9 @@ poetryでライブラリ開発のフロー
 - アプリ、ライブラリの違い
    - https://www.m3tech.blog/entry/python-packaging
    - 個人的にはライブラリライクに作ってエンドポイント(cli, webserver)を分けるのが良い
-- poetry 以前 の話
+- [Pythonインポート周り徹底理解への道 - Qiita](https://qiita.com/papi_tokei/items/bc34d798dc7a6d49df30)
+    - インポートしたパッケージ内のモジュールは自動的にインポートされない
+- poetry を使わない場合
     - setup.cfg, setup.py
        - パッケージ名
        - バージョン
