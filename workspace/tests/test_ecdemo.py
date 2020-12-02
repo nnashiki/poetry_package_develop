@@ -1,18 +1,23 @@
 from ecdemo import __version__
-from ecdemo.user import Fullname
+from ecdemo.user import Fullname, NameLengthException
 
+import pytest
 
 def test_version():
     assert __version__ == '0.1.0'
 
 
-def test_name_length():
-    assert Fullname('Tanaka', 'Taro')
+class TestNameLength:
 
+    def test_name_length(self):
+        assert Fullname('Tanaka', 'Taro')
 
-def test_name_max_length():
-    assert Fullname('12345678901234567890', 'Taro')
+    def test_name_max_length(self):
+        assert Fullname('12345678901234567890', 'Taro')
 
+    def test_name_min_length(self):
+        assert Fullname('N', 'A')
 
-def test_name_min_length():
-    assert Fullname('N', 'A')
+    def test_blank(self):
+        with pytest.raises(NameLengthException):
+            raise NameLengthException()
