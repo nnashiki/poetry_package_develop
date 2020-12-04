@@ -1,17 +1,15 @@
+from typing import Protocol
+
 NAME_MAX_LENGTH = 20
 NAME_MIN_LENGTH = 1
 
 
-class NameLengthException(Exception):
-    pass
-
-
 class Fullname:
     def __init__(self,
-                 family_name: str,
-                 first_name: str):
-        self.family_name = self.common_name_validate(family_name)
-        self.first_name = self.common_name_validate(first_name)
+                 family: str,
+                 first: str):
+        self.family = self.common_name_validate(family)
+        self.first = self.common_name_validate(first)
 
     @staticmethod
     def common_name_validate(name):
@@ -22,11 +20,55 @@ class Fullname:
         return name
 
 
+class NameLengthException(Exception):
+    pass
+
+
 class User:
     def __init__(self,
-                 name: str):
-        self.name: str = name
+                 name: Fullname):
+        self.name: Fullname = name
 
     @classmethod
-    def init_user(cls, name):
+    def init_user(cls, name: Fullname):
         return cls(name)
+
+
+class InterfaceUserRepository(Protocol):
+    def find(self, name: Fullname) -> User:
+        pass
+
+    def save(self, user: User) -> None:
+        pass
+
+    def exists(self, name: Fullname) -> bool:
+        pass
+
+
+class UserRepositoryPostgres:
+    pass
+
+
+class UserRepositoryMock:
+
+    @staticmethod
+    def find(name: Fullname) -> User:
+        return User(Fullname('Tanaka', 'Taro'))
+
+    @staticmethod
+    def save(user: User) -> None:
+        pass
+
+    @staticmethod
+    def exists(name: Fullname) -> bool:
+        return False
+
+
+def save_process(repository: InterfaceUserRepository,
+                 user: User):
+    if repository.exists(user.name):
+        return Exception('登録済みです')
+
+    repository.save(user)
+    find_result: User = repository.find(user.name)
+    print(find_result.name)
