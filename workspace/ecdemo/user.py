@@ -5,9 +5,7 @@ NAME_MIN_LENGTH = 1
 
 
 class Fullname:
-    def __init__(self,
-                 family: str,
-                 first: str):
+    def __init__(self, family: str, first: str):
         self.family = self.common_name_validate(family)
         self.first = self.common_name_validate(first)
 
@@ -25,8 +23,7 @@ class NameLengthException(Exception):
 
 
 class User:
-    def __init__(self,
-                 name: Fullname):
+    def __init__(self, name: Fullname):
         self.name: Fullname = name
 
     @classmethod
@@ -50,10 +47,9 @@ class UserRepositoryPostgres:
 
 
 class UserRepositoryMock:
-
     @staticmethod
     def find(name: Fullname) -> User:
-        return User(Fullname('Tanaka', 'Taro'))
+        return User(Fullname("Tanaka", "Taro"))
 
     @staticmethod
     def save(user: User) -> None:
@@ -64,10 +60,9 @@ class UserRepositoryMock:
         return False
 
 
-def save_process(repository: InterfaceUserRepository,
-                 user: User):
+def save_process(repository: InterfaceUserRepository, user: User):
     if repository.exists(user.name):
-        return Exception('登録済みです')
+        return Exception("登録済みです")
 
     repository.save(user)
     find_result: User = repository.find(user.name)
