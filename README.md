@@ -77,6 +77,14 @@ poetryでライブラリ開発のフロー
 - list format のコマンドを Makefile にまとめる
     - touch Makefile
 
+# 注意点
+- 現段階ではsubdirctoryにsetup.pyがあるやつはpoetry addできない
+   - [python 3.x - How to add subfolder package in poetry for a git repository? - Stack Overflow](https://stackoverflow.com/questions/63182754/how-to-add-subfolder-package-in-poetry-for-a-git-repository)
+   - > nstalling packages in a subfolder of git is currently not supported by poetry. There is already a feature request for it (#755) and I started to work on that (#1822).
+       - [Install package from Version Control System (git) where setup.py is in subdirectory · Issue #1915 · python-poetry/poetry](https://github.com/python-poetry/poetry/issues/1915)
+       - [support git subfolder (#755) by finswimmer · Pull Request #1822 · python-poetry/poetry](https://github.com/python-poetry/poetry/pull/1822)
+       - [support git subfolder (#755) by finswimmer · Pull Request #2242 · python-poetry/poetry](https://github.com/python-poetry/poetry/pull/2242)
+
 # 参考
 - poetry
     - [日本語](https://cocoatomo.github.io/poetry-ja/)
